@@ -294,7 +294,9 @@ class TT_RNN(Recurrent):
         return constants
 
     def get_config(self):
-        config = {'units': self.units,
+        config = {'tt_input_shape': self.tt_input_shape, 
+                  'tt_output_shape': self.tt_output_shape,
+                  'tt_ranks': self.tt_ranks,
                   'activation': activations.serialize(self.activation),
                   'use_bias': self.use_bias,
                   'kernel_initializer': initializers.serialize(self.kernel_initializer),
@@ -581,7 +583,9 @@ class TT_GRU(Recurrent):
         return h, [h]
 
     def get_config(self):
-        config = {'units': self.units,
+        config = {'tt_input_shape': self.tt_input_shape, 
+                  'tt_output_shape': self.tt_output_shape,
+                  'tt_ranks': self.tt_ranks,
                   'activation': activations.serialize(self.activation),
                   'recurrent_activation': activations.serialize(self.recurrent_activation),
                   'use_bias': self.use_bias,
@@ -900,7 +904,9 @@ class TT_LSTM(Recurrent):
         return h, [h, c]
 
     def get_config(self):
-        config = {'units': self.units,
+        config = {'tt_input_shape': self.tt_input_shape, 
+                  'tt_output_shape': self.tt_output_shape,
+                  'tt_ranks': self.tt_ranks,
                   'activation': activations.serialize(self.activation),
                   'recurrent_activation': activations.serialize(self.recurrent_activation),
                   'use_bias': self.use_bias,
